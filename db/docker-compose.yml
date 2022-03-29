@@ -1,0 +1,42 @@
+version: '3'
+services:
+  rp1db:
+    build: .
+    # image: mysql
+    # command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - 5433:5432
+      # - 3307:3306
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      # MYSQL_ROOT_PASSWORD: root
+      # MYSQL_USER: rp1
+      # MYSQL_PASSWORD: rp1
+      # TZ: "Asia/Tokyo"
+    volumes:
+      - ./rp1/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      # - ./rp1/data:/var/lib/postgresql/data
+      # - ./rp1/init:/docker-entrypoint-initdb.d
+      # - ./rp1/data:/var/lib/mysql
+    container_name: rp1_db
+  rp2db:
+    build: .
+    # image: mysql
+    # command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - 5434:5432
+      # - 3308:3306
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      # MYSQL_ROOT_PASSWORD: root
+      # MYSQL_USER: rp2
+      # MYSQL_PASSWORD: rp2
+      # TZ: "Asia/Tokyo"
+    volumes:
+      - ./rp2/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      # - ./rp2/data:/var/lib/postgresql/data
+      # - ./rp2/init:/docker-entrypoint-initdb.d
+      # - ./rp2/data:/var/lib/mysql
+    container_name: rp2_db

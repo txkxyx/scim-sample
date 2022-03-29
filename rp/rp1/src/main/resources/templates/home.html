@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Home</h1>
+    <div>
+        <p>ユーザーID：<span sec:authentication="name"></span></p>
+        <p>ユーザー名：<span sec:authentication="principal.firstName"></span></p>
+    </div>
+    <div><a href="/department/create">部門登録</a></div>
+    <div><a href="/user/create">ユーザー登録</a></div>
+
+    <div>
+        <table border="1">
+            <thead>
+                <th>社員コード</th>
+                <th>名前</th>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.code}"></td>
+                    <td th:text="${user.firstName + ' ' + user.lastName}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <table border="1">
+            <thead>
+                <th>部門コード</th>
+                <th>部門名</th>
+                <th>編集</th>
+            </thead>
+            <tbody>
+                <tr th:each="department : ${departments}">
+                    <td th:text="${department.code}"></td>
+                    <td th:text="${department.name}"></td>
+                    <td><a th:href="@{/department/update/{id}(id=${department.id})}">編集</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <form action="post" th:action="@{/logout}">
+        <button type="submit">ログアウト</button>
+    </form>
+</body>
+
+</html>

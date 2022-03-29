@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>ユーザー登録</h1>
+    <form th:action="@{/user/create}" method="post" th:object="${form}">
+        <div>
+            <label for="code">社員コード</label>
+            <input type="text" th:field="*{code}">
+        </div>
+        <div>
+            <label for="email">メールアドレス</label>
+            <input type="email" th:field="*{email}">
+        </div>
+        <div>
+            <label for="firstName">名前（姓）</label>
+            <input type="text" th:field="*{firstName}">
+            <label for="lastName">名前（名）</label>
+            <input type="text" th:field="*{lastName}">
+        </div>
+        <div>
+            <label for="firstNameKana">名前かな（姓）</label>
+            <input type="text" th:field="*{firstNameKana}">
+            <label for="lastNameKana">名前かな（名）</label>
+            <input type="text" th:field="*{lastNameKana}">
+        </div>
+        <div>
+            <label for="dno1">部門1</label>
+            <select name="dno1" id="dno1">
+                <option value="0">所属なし</option>
+                <option th:each="department : ${departments}" th:value="${department.id}">[[${department.name}]]
+                </option>
+            </select>
+        </div>
+        <div>
+            <label for="dno2">部門2</label>
+            <select name="dno2" id="dno2">
+                <option value="0">所属なし</option>
+                <option th:each="department : ${departments}" th:value="${department.id}">[[${department.name}]]
+                </option>
+            </select>
+        </div>
+        <div>
+            <label for="dno3">部門3</label>
+            <select name="dno3" id="dno3">
+                <option value="0">所属なし</option>
+                <option th:each="department : ${departments}" th:value="${department.id}">[[${department.name}]]
+                </option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="ユーザー登録">
+        </div>
+    </form>
+</body>
+
+</html>
