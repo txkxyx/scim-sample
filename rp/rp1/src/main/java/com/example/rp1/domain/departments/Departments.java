@@ -1,19 +1,7 @@
 package com.example.rp1.domain.departments;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "Departments")
 public class Departments {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Integer id;
 
     public Integer getId() {
@@ -24,7 +12,6 @@ public class Departments {
         this.id = id;
     }
 
-    @Column(name = "code")
     private String code;
 
     public String getCode() {
@@ -35,7 +22,6 @@ public class Departments {
         this.code = code;
     }
 
-    @Column(name = "name")
     private String name;
 
     public String getName() {
@@ -46,7 +32,6 @@ public class Departments {
         this.name = name;
     }
 
-    @Column(name = "tenant_id")
     private Integer tenantId;
 
     public Integer getTenantId() {

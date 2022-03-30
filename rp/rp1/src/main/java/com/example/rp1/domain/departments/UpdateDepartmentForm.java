@@ -1,8 +1,18 @@
 package com.example.rp1.domain.departments;
 
-public class CreateDepartment {
+public class UpdateDepartmentForm {
+
+    private Integer id;
     private String code;
     private String name;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getCode() {
         return code;
@@ -19,4 +29,5 @@ public class CreateDepartment {
     public void setName(String name) {
         this.name = name;
     }
+
 }

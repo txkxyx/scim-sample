@@ -1,8 +1,26 @@
 package com.example.rp1.domain.users;
 
-public class Users {
+public class UpdateUserForm {
 
     private Integer id;
+
+    private String code;
+
+    private String email;
+
+    private String firstName;
+
+    private String lastName;
+
+    private String firstNameKana;
+
+    private String lastNameKana;
+
+    private Integer dno1;
+
+    private Integer dno2;
+
+    private Integer dno3;
 
     public Integer getId() {
         return id;
@@ -12,8 +30,6 @@ public class Users {
         this.id = id;
     }
 
-    private String code;
-
     public String getCode() {
         return code;
     }
@@ -21,8 +37,6 @@ public class Users {
     public void setCode(String code) {
         this.code = code;
     }
-
-    private String email;
 
     public String getEmail() {
         return email;
@@ -32,18 +46,6 @@ public class Users {
         this.email = email;
     }
 
-    private String password;
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    private String firstName;
-
     public String getFirstName() {
         return firstName;
     }
@@ -51,8 +53,6 @@ public class Users {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
-    private String lastName;
 
     public String getLastName() {
         return lastName;
@@ -62,8 +62,6 @@ public class Users {
         this.lastName = lastName;
     }
 
-    private String firstNameKana;
-
     public String getFirstNameKana() {
         return firstNameKana;
     }
@@ -71,8 +69,6 @@ public class Users {
     public void setFirstNameKana(String firstNameKana) {
         this.firstNameKana = firstNameKana;
     }
-
-    private String lastNameKana;
 
     public String getLastNameKana() {
         return lastNameKana;
@@ -82,18 +78,6 @@ public class Users {
         this.lastNameKana = lastNameKana;
     }
 
-    private Integer tenantId;
-
-    public Integer getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Integer tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    private Integer dno1;
-
     public Integer getDno1() {
         return dno1;
     }
@@ -101,8 +85,6 @@ public class Users {
     public void setDno1(Integer dno1) {
         this.dno1 = dno1;
     }
-
-    private Integer dno2;
 
     public Integer getDno2() {
         return dno2;
@@ -112,8 +94,6 @@ public class Users {
         this.dno2 = dno2;
     }
 
-    private Integer dno3;
-
     public Integer getDno3() {
         return dno3;
     }
@@ -121,4 +101,5 @@ public class Users {
     public void setDno3(Integer dno3) {
         this.dno3 = dno3;
     }
+
 }

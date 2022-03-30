@@ -2,8 +2,6 @@ package com.example.rp1.domain.departments;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import com.example.rp1.domain.tenant.Tenant;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,24 +11,36 @@ import org.springframework.stereotype.Service;
 public class DepartmentsService {
 
     @Autowired
-    private DepartmentsRepository departmentsRepository;
+    private DepartmentsMapper departmentsMapper;
 
-    @Transactional
     public Departments createAdminDepartment(Tenant tenant) {
         return createDepartment("000", "所属なし", tenant.getId());
     }
 
-    @Transactional
     public Departments createDepartment(String code, String name, Integer tenantId) {
         Departments departments = new Departments();
         departments.setCode(code);
         departments.setName(name);
         departments.setTenantId(tenantId);
-        return departmentsRepository.save(departments);
+        departmentsMapper.save(departments);
+        return departments;
     }
 
-    @Transactional
     public List<Departments> getAllDepartments(Integer tenantId) {
-        return departmentsRepository.findByTenantId(tenantId);
+        return departmentsMapper.findByTenantId(tenantId);
+    }
+
+    public Departments getDepartments(Integer id, Integer tenantId) {
+        return departmentsMapper.findById(id, tenantId);
+    }
+
+    public Departments updateDepartments(Integer id, String code, String name, Integer tenantId) {
+        Departments departments = new Departments();
+        departments.setId(id);
+        departments.setCode(code);
+        departments.setName(name);
+        departments.setTenantId(tenantId);
+        departmentsMapper.update(departments);
+        return departments;
     }
 }
