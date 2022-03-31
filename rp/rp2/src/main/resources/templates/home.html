@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Home</h1>
+    <div>
+        <h2>ログインユーザー</h2>
+        <table border="1">
+            <tr>
+                <th>社員コード</th>
+                <td><span th:text="${loginUser.code}"></span></td>
+            </tr>
+            <tr>
+                <th>メールアドレス</th>
+                <td><span th:text="${loginUser.email}"></span></td>
+            </tr>
+            <tr>
+                <th>名前</th>
+                <td><span th:text="${loginUser.firstName} + ' ' + ${loginUser.lastName}"></span></td>
+            </tr>
+            <tr>
+                <th>名前（かな）</th>
+                <td><span th:text="${loginUser.firstNameKana} + ' ' + ${loginUser.lastNameKana}"></span></td>
+            </tr>
+            <tr>
+                <th>部門1</th>
+                <td><span th:text="${loginUser.departmentName1}"></span></td>
+            </tr>
+            <tr>
+                <th>部門2</th>
+                <td><span th:text="${loginUser.departmentName2}"></span></td>
+            </tr>
+            <tr>
+                <th>部門3</th>
+                <td><span th:text="${loginUser.departmentName3}"></span></td>
+            </tr>
+            <tr>
+                <th>会社名</th>
+                <td><span th:text="${loginUser.tenantName}"></span></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h2>部門一覧</h2>
+        <div><a href="/department/create">部門登録</a></div>
+        <div>
+            <table border="1">
+                <thead>
+                    <th>部門コード</th>
+                    <th>部門名</th>
+                    <th>編集</th>
+                </thead>
+                <tbody>
+                    <tr th:each="department : ${departments}">
+                        <td th:text="${department.code}"></td>
+                        <td th:text="${department.name}"></td>
+                        <td><a th:href="@{/department/update/{id}(id=${department.id})}">編集</a> <a
+                                th:href="@{/department/delete/{id}(id=${department.id})}">削除</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div>
+        <h2>ユーザー一覧</h2>
+        <div><a href="/user/create">ユーザー登録</a></div>
+
+        <div>
+            <table border="1">
+                <thead>
+                    <th>社員コード</th>
+                    <th>名前</th>
+                    <th>操作</th>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <td th:text="${user.code}"></td>
+                        <td th:text="${user.firstName + ' ' + user.lastName}"></td>
+                        <td><a th:if="${loginUser.id != user.id}" th:href="@{/user/update/{id}(id=${user.id})}">編集</a>
+                            <a th:if="${loginUser.id != user.id}" th:href="@{/user/delete/{id}(id=${user.id})}">削除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <form action="post" th:action="@{/logout}">
+        <button type="submit">ログアウト</button>
+    </form>
+</body>
+
+</html>
