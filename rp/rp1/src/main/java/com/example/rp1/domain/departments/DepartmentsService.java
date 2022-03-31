@@ -17,7 +17,7 @@ public class DepartmentsService {
         return createDepartment("000", "所属なし", tenant.getId());
     }
 
-    public Departments createDepartment(String code, String name, Integer tenantId) {
+    public Departments createDepartment(String code, String name, Long tenantId) {
         Departments departments = new Departments();
         departments.setCode(code);
         departments.setName(name);
@@ -26,15 +26,15 @@ public class DepartmentsService {
         return departments;
     }
 
-    public List<Departments> getAllDepartments(Integer tenantId) {
+    public List<Departments> getAllDepartments(Long tenantId) {
         return departmentsMapper.findByTenantId(tenantId);
     }
 
-    public Departments getDepartments(Integer id, Integer tenantId) {
+    public Departments getDepartments(Long id, Long tenantId) {
         return departmentsMapper.findById(id, tenantId);
     }
 
-    public Departments updateDepartments(Integer id, String code, String name, Integer tenantId) {
+    public Departments updateDepartments(Long id, String code, String name, Long tenantId) {
         Departments departments = new Departments();
         departments.setId(id);
         departments.setCode(code);
@@ -42,5 +42,9 @@ public class DepartmentsService {
         departments.setTenantId(tenantId);
         departmentsMapper.update(departments);
         return departments;
+    }
+
+    public boolean deleteDepartments(Long id, Long tenantId) {
+        return departmentsMapper.delete(id, tenantId);
     }
 }

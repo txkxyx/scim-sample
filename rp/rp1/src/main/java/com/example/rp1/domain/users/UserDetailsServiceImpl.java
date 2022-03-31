@@ -25,6 +25,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         appUserDetails.setCode(loginUser.getCode());
         appUserDetails.setFirstName(loginUser.getFirstName());
         appUserDetails.setLastName(loginUser.getLastName());
+        appUserDetails.setFirstNameKana(loginUser.getFirstNameKana());
+        appUserDetails.setLastNameKana(loginUser.getLastNameKana());
         appUserDetails.setTenantId(loginUser.getTenantId());
 
         return appUserDetails;

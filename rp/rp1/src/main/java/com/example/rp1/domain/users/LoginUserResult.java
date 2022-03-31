@@ -1,12 +1,14 @@
 package com.example.rp1.domain.users;
 
-public class UpdateUserForm {
+public class LoginUserResult {
 
     private Long id;
 
     private String code;
 
     private String email;
+
+    private String password;
 
     private String firstName;
 
@@ -16,11 +18,15 @@ public class UpdateUserForm {
 
     private String lastNameKana;
 
-    private Long dno1;
+    private String departmentName1;
 
-    private Long dno2;
+    private String departmentName2;
 
-    private Long dno3;
+    private String departmentName3;
+
+    private String tenantName;
+
+    private Long tenantId;
 
     public Long getId() {
         return id;
@@ -78,28 +84,52 @@ public class UpdateUserForm {
         this.lastNameKana = lastNameKana;
     }
 
-    public Long getDno1() {
-        return dno1;
+    public String getDepartmentName1() {
+        return departmentName1;
     }
 
-    public void setDno1(Long dno1) {
-        this.dno1 = dno1;
+    public void setDepartmentName1(String departmentName1) {
+        this.departmentName1 = departmentName1;
     }
 
-    public Long getDno2() {
-        return dno2;
+    public String getDepartmentName2() {
+        return departmentName2;
     }
 
-    public void setDno2(Long dno2) {
-        this.dno2 = dno2;
+    public void setDepartmentName2(String departmentName2) {
+        this.departmentName2 = departmentName2;
     }
 
-    public Long getDno3() {
-        return dno3;
+    public String getDepartmentName3() {
+        return departmentName3;
     }
 
-    public void setDno3(Long dno3) {
-        this.dno3 = dno3;
+    public void setDepartmentName3(String departmentName3) {
+        this.departmentName3 = departmentName3;
+    }
+
+    public String getTenantName() {
+        return tenantName;
+    }
+
+    public void setTenantName(String tenantName) {
+        this.tenantName = tenantName;
+    }
+
+    public Long getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(Long tenantId) {
+        this.tenantId = tenantId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

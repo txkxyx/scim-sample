@@ -6,6 +6,7 @@ import com.example.rp1.domain.departments.Departments;
 import com.example.rp1.domain.departments.DepartmentsService;
 import com.example.rp1.domain.users.AppUserDetails;
 import com.example.rp1.domain.users.CreateUser;
+import com.example.rp1.domain.users.LoginUserDto;
 import com.example.rp1.domain.users.UpdateUserForm;
 import com.example.rp1.domain.users.Users;
 import com.example.rp1.domain.users.UsersService;
@@ -29,8 +30,11 @@ public class UsersController {
 
     @GetMapping("/home")
     public String getHome(@AuthenticationPrincipal AppUserDetails loginUser, Model model) {
+        LoginUserDto loginUserDto = usersService.getLoginUser(loginUser.getId(), loginUser.getTenantId());
         List<Users> users = usersService.getAllUsers(loginUser.getTenantId());
         List<Departments> departments = departmentsService.getAllDepartments(loginUser.getTenantId());
+
+        model.addAttribute("loginUser", loginUserDto);
         model.addAttribute("users", users);
         model.addAttribute("departments", departments);
         return "home";
@@ -54,7 +58,7 @@ public class UsersController {
 
     @GetMapping("/user/update/{id}")
     public String updateUser(@AuthenticationPrincipal AppUserDetails loginUser, Model model,
-            @PathVariable("id") Integer userId) {
+            @PathVariable("id") Long userId) {
         Users user = usersService.getUser(userId, loginUser.getTenantId());
         UpdateUserForm form = new UpdateUserForm();
         form.setId(user.getId());
@@ -67,8 +71,11 @@ public class UsersController {
         form.setDno2(user.getDno2());
         form.setDno3(user.getDno3());
 
+        List<Departments> departments = departmentsService.getAllDepartments(loginUser.getTenantId());
+
         model.addAttribute("form", form);
-        return "user/update";
+        model.addAttribute("departments", departments);
+        return "users/update";
     }
 
     @PostMapping("/user/update")
@@ -80,4 +87,9 @@ public class UsersController {
         return "redirect:/home";
     }
 
+    @GetMapping("/user/delete/{id}")
+    public String deleteUser(@AuthenticationPrincipal AppUserDetails loginUser, @PathVariable("id") Long id) {
+        usersService.deleteUsers(id, loginUser.getTenantId());
+        return "redirect:/home";
+    }
 }

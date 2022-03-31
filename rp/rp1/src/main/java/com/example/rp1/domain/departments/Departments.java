@@ -2,13 +2,13 @@ package com.example.rp1.domain.departments;
 
 public class Departments {
 
-    private Integer id;
+    private Long id;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -32,13 +32,13 @@ public class Departments {
         this.name = name;
     }
 
-    private Integer tenantId;
+    private Long tenantId;
 
-    public Integer getTenantId() {
+    public Long getTenantId() {
         return tenantId;
     }
 
-    public void setTenantId(Integer tenantId) {
+    public void setTenantId(Long tenantId) {
         this.tenantId = tenantId;
     }
 

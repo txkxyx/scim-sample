@@ -11,9 +11,9 @@ public class CreateUser {
     public String lastName;
     public String firstNameKana;
     public String lastNameKana;
-    public Integer dno1;
-    public Integer dno2;
-    public Integer dno3;
+    public Long dno1;
+    public Long dno2;
+    public Long dno3;
 
     public String getCode() {
         return code;
@@ -71,27 +71,27 @@ public class CreateUser {
         this.lastNameKana = lastNameKana;
     }
 
-    public Integer getDno1() {
+    public Long getDno1() {
         return dno1;
     }
 
-    public void setDno1(Integer dno1) {
+    public void setDno1(Long dno1) {
         this.dno1 = dno1;
     }
 
-    public Integer getDno2() {
+    public Long getDno2() {
         return dno2;
     }
 
-    public void setDno2(Integer dno2) {
+    public void setDno2(Long dno2) {
         this.dno2 = dno2;
     }
 
-    public Integer getDno3() {
+    public Long getDno3() {
         return dno3;
     }
 
-    public void setDno3(Integer dno3) {
+    public void setDno3(Long dno3) {
         this.dno3 = dno3;
     }
 }

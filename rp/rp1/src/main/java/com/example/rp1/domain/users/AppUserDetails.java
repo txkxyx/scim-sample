@@ -18,70 +18,21 @@ public class AppUserDetails implements UserDetails {
 
     private String email;
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     private String password;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     // ユーザー状態のチェックで利用する
-    private Integer id;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private Long id;
 
     private String code;
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     private String firstName;
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+    private String firstNameKana;
 
     private String lastName;
 
-    public String getLastName() {
-        return lastName;
-    }
+    private String lastNameKana;
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    private Integer tenantId;
-
-    public Integer getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Integer tenantId) {
-        this.tenantId = tenantId;
-    }
+    private Long tenantId;
 
     private Collection<? extends GrantedAuthority> authorities;
 
@@ -126,6 +77,74 @@ public class AppUserDetails implements UserDetails {
     public boolean isEnabled() {
         // 常に有効
         return true;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getFirstNameKana() {
+        return firstNameKana;
+    }
+
+    public void setFirstNameKana(String firstNameKana) {
+        this.firstNameKana = firstNameKana;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getLastNameKana() {
+        return lastNameKana;
+    }
+
+    public void setLastNameKana(String lastNameKana) {
+        this.lastNameKana = lastNameKana;
+    }
+
+    public Long getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(Long tenantId) {
+        this.tenantId = tenantId;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

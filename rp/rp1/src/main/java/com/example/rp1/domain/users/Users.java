@@ -2,13 +2,13 @@ package com.example.rp1.domain.users;
 
 public class Users {
 
-    private Integer id;
+    private Long id;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -82,43 +82,43 @@ public class Users {
         this.lastNameKana = lastNameKana;
     }
 
-    private Integer tenantId;
+    private Long tenantId;
 
-    public Integer getTenantId() {
+    public Long getTenantId() {
         return tenantId;
     }
 
-    public void setTenantId(Integer tenantId) {
+    public void setTenantId(Long tenantId) {
         this.tenantId = tenantId;
     }
 
-    private Integer dno1;
+    private Long dno1;
 
-    public Integer getDno1() {
+    public Long getDno1() {
         return dno1;
     }
 
-    public void setDno1(Integer dno1) {
+    public void setDno1(Long dno1) {
         this.dno1 = dno1;
     }
 
-    private Integer dno2;
+    private Long dno2;
 
-    public Integer getDno2() {
+    public Long getDno2() {
         return dno2;
     }
 
-    public void setDno2(Integer dno2) {
+    public void setDno2(Long dno2) {
         this.dno2 = dno2;
     }
 
-    private Integer dno3;
+    private Long dno3;
 
-    public Integer getDno3() {
+    public Long getDno3() {
         return dno3;
     }
 
-    public void setDno3(Integer dno3) {
+    public void setDno3(Long dno3) {
         this.dno3 = dno3;
     }
 }

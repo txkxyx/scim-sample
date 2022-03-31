@@ -36,7 +36,7 @@ public class DepartmentsController {
 
     @GetMapping("/department/update/{id}")
     public String updateDepartment(@AuthenticationPrincipal AppUserDetails loginUser,
-            @PathVariable("id") Integer departmentId, Model model) {
+            @PathVariable("id") Long departmentId, Model model) {
         Departments departments = departmentsService.getDepartments(departmentId, loginUser.getTenantId());
 
         UpdateDepartmentForm form = new UpdateDepartmentForm();
@@ -53,6 +53,13 @@ public class DepartmentsController {
             UpdateDepartmentForm updateDepartmentForm) {
         departmentsService.updateDepartments(updateDepartmentForm.getId(), updateDepartmentForm.getCode(),
                 updateDepartmentForm.getName(), loginUser.getTenantId());
+        return "redirect:/home";
+    }
+
+    @GetMapping("/department/delete/{id}")
+    public String deleteDepartment(@AuthenticationPrincipal AppUserDetails loginUser,
+            @PathVariable("id") Long departmentId) {
+        departmentsService.deleteDepartments(departmentId, loginUser.getTenantId());
         return "redirect:/home";
     }
 
