@@ -28,10 +28,6 @@ dependencies {
 	implementation 'org.springframework.session:spring-session-core'
 	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-sleuth
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-sleuth', version: '3.1.1'
-	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-client
-	implementation group: 'org.springframework.security', name: 'spring-security-oauth2-client', version: '5.6.2'
-	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-jose
-	implementation group: 'org.springframework.security', name: 'spring-security-oauth2-jose', version: '5.6.2'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'

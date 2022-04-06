@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> SSO設定</h1>
+    <div>
+        <h2>OpenID Connect OP情報</h2>
+        <table border="1">
+            <tr>
+                <th>クライアントID</th>
+                <td><span th:text="${oidcps.clientId}"></span></td>
+            </tr>
+            <tr>
+                <th>clientSecret</th>
+                <td><span th:text="${oidcps.clientSecret}"></span></td>
+            </tr>
+            <tr>
+                <th>clientName</th>
+                <td><span th:text="${oidcps.clientName}"></span></td>
+            </tr>
+            <tr>
+                <th>provider</th>
+                <td><span th:text="${oidcps.provider}"></span></td>
+            </tr>
+            <tr>
+                <th>scope</th>
+                <td><span th:text="${oidcps.scope}"></span></td>
+            </tr>
+            <tr>
+                <th>redirectUriTemplate</th>
+                <td><span th:text="${oidcps.redirectUriTemplate}"></span></td>
+            </tr>
+            <tr>
+                <th>clientAuthenticationMethod</th>
+                <td><span th:text="${oidcps.clientAuthenticationMethod}"></span></td>
+            </tr>
+            <tr>
+                <th>authorizationGrantType</th>
+                <td><span th:text="${oidcps.authorizationGrantType}"></span></td>
+            </tr>
+            <tr>
+                <th>authorizationDomain</th>
+                <td><span th:text="${oidcps.authorizationDomain}"></span></td>
+            </tr>
+            <tr>
+                <th>userNameAttribute</th>
+                <td><span th:text="${oidcps.userNameAttribute}"></span></td>
+            </tr>
+            <tr>
+                <th>authorizationUri</th>
+                <td><span th:text="${oidcps.authorizationUri}"></span></td>
+            </tr>
+            <tr>
+                <th>tokenUri</th>
+                <td><span th:text="${oidcps.tokenUri}"></span></td>
+            </tr>
+            <tr>
+                <th>userInfoUri</th>
+                <td><span th:text="${oidcps.userInfoUri}"></span></td>
+            </tr>
+            <tr>
+                <th>jwkSetUri</th>
+                <td><span th:text="${oidcps.jwkSetUri}"></span></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
